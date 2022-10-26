@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Telugu MN';
+  src: local('Telugu MN'), url(./static/telugu-mn.woff) format('woff');
+}
+
 * { 
   box-sizing: border-box;
   font-family: 'Telugu MN', serif;
