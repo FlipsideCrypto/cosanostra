@@ -1,3 +1,5 @@
+![cosanostra is a collective of individuals focused on generating on-chain value](./public/opengraph.png)
+
 # Getting Started with cosanostra
 
 ## Available Scripts
