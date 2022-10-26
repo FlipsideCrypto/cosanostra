@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
+html,
+body {
+	background: #000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+	margin-inline: 60px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+	background: #000;
+	height: 56px;
+	display: grid;
+	grid-template-columns: 4fr 8fr;
+	position: relative;
+	z-index: 1001;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar h2 { 
+	align-items: center;
+	display: flex;
+	color: rgba(255, 255, 255, .15);
 }
 
-.App-link {
-  color: #61dafb;
+.navbar h2 svg { 
+	box-shadow: 
+		0 0 10px rgba(255, 216, 0, .15), 
+		0 0 30px rgba(255, 216, 0, .15), 
+		0 0 70px rgba(255, 216, 0, .15), 
+		0 0 100px rgba(255, 216, 0, .15), 
+		0 0 150px rgba(255, 216, 0, .15);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar .links {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	color: rgba(255, 255, 255, .15);
+}
+
+.navbar .links svg {
+	color: rgba(255,255,255,.15);
+	transition: all .1s ease-in-out;
+}
+
+.navbar .links svg:hover,
+.navbar .links svg:focus {
+	color: rgba(255, 255, 255, .5);
+}
+
+.navbar img {
+	font-size: 18px;
+	margin-right: 10px;
+	height: 32px;
+	margin-block: auto;
+}
+
+.navbar .links a {
+	color: #fff;
+	text-decoration: none;
+	margin: 0 10px;
+}
+
+.content {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	min-height: calc(100vh - 56px);
+	overflow-x: hidden;
+	cursor: pointer;
+}
+
+/* var x and y */
+
+.content::after {
+	content: '';
+	z-index: 888;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-image: url('../src/static/circles.svg');
+	background-repeat: repeat;
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: soft-light;
+}
+
+.content .content__layer__text {
+	background: radial-gradient(
+			farthest-corner circle at var(--x) var(--y),
+			rgb(255, 216, 0, 1) 1%, transparent 30%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	text-shadow: 
+		0 0 10px rgba(255, 216, 0, .15), 
+		0 0 30px rgba(255, 216, 0, .15), 
+		0 0 70px rgba(255, 216, 0, .15), 
+		0 0 100px rgba(255, 216, 0, .15), 
+		0 0 150px rgba(255, 216, 0, .15);
+	transition: all .1s ease;
+	cursor: pointer;
+}
+
+.content .content__layer__text h1 {
+	color: #FFD800;
+	font-size: 10rem;
+}
+
+.content {
+	color: white;
+}
+
+.content__layer__one {
+	content: '';
+	z-index: 999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url('../src/static/noise.png');
+	background-repeat: repeat;
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: color-dodge;
+	background-position: var(--y) var(--x);
+}
+
+@media only screen and (max-width: 1200px) {
+	.navbar { 
+		margin-inline: 20px;
+	}
+
+	.content .content__layer__text h1 {
+		font-size: 4rem;
+	}
 }
