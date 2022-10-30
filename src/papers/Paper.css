@@ -1,0 +1,29 @@
+.paper { 
+    min-height: 100vh;
+    margin-bottom: 80px;
+}
+
+.paper .container { 
+    max-width: 650px;
+}
+
+.paper .markdown p img { 
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.paper .attributes { 
+    margin-bottom: 40px;
+}
+
+.paper-progress { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background: #FFD800;
+    z-index: 100;
+    transition: all 0.1s ease;
+}

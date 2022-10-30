@@ -4,48 +4,54 @@ body {
 }
 
 .container {
-	margin-inline: 60px;
+	margin-inline: auto;
+	padding-inline: 30px;
 }
 
 .navbar {
 	background: #000;
 	height: 56px;
 	display: grid;
-	grid-template-columns: 4fr 8fr;
+	grid-template-columns: 160px 4fr 6fr;
 	position: relative;
 	z-index: 1001;
+	margin-bottom: 20px;
 }
 
 .navbar h2 { 
 	align-items: center;
 	display: flex;
-	color: rgba(255, 255, 255, .15);
+	color: rgba(255, 255, 255, .35);
+	font-size: 1.2rem;
 }
 
 .navbar h2 svg { 
 	box-shadow: 
-		0 0 10px rgba(255, 216, 0, .15), 
-		0 0 30px rgba(255, 216, 0, .15), 
-		0 0 70px rgba(255, 216, 0, .15), 
-		0 0 100px rgba(255, 216, 0, .15), 
-		0 0 150px rgba(255, 216, 0, .15);
+		0 0 10px rgba(255, 216, 0, .35), 
+		0 0 30px rgba(255, 216, 0, .35), 
+		0 0 70px rgba(255, 216, 0, .35), 
+		0 0 100px rgba(255, 216, 0, .35), 
+		0 0 150px rgba(255, 216, 0, .35);
 }
 
 .navbar .links {
 	display: flex;
-	justify-content: flex-end;
 	align-items: center;
-	color: rgba(255, 255, 255, .15);
+	color: rgba(255, 255, 255, .35);
+}
+
+.navbar .links:last-child { 
+	justify-content: flex-end;
 }
 
 .navbar .links svg {
-	color: rgba(255,255,255,.15);
+	color: rgba(255,255,255,.35);
 	transition: all .1s ease-in-out;
 }
 
 .navbar .links svg:hover,
 .navbar .links svg:focus {
-	color: rgba(255, 255, 255, .5);
+	color: rgba(255, 255, 255, .65);
 }
 
 .navbar img {
@@ -56,7 +62,6 @@ body {
 }
 
 .navbar .links a {
-	color: #fff;
 	text-decoration: none;
 	margin: 0 10px;
 }
@@ -102,7 +107,7 @@ body {
 		0 0 70px rgba(255, 216, 0, .15), 
 		0 0 100px rgba(255, 216, 0, .15), 
 		0 0 150px rgba(255, 216, 0, .15);
-	transition: all .1s ease;
+	transition: all .1s ease-in-out;
 	cursor: pointer;
 }
 
@@ -129,11 +134,29 @@ body {
 	background-position: var(--y) var(--x);
 }
 
-@media only screen and (max-width: 1200px) {
-	.navbar { 
-		margin-inline: 20px;
-	}
+.content.mini { 
+	min-height: 30vh;
+	position: relative;
+}
 
+.content.mini::after {
+	position: absolute;
+}
+
+.content.mini .content__layer__text h1 {
+	font-size: 4rem;
+}
+
+.content.mini .content__layer__one {
+	bottom: 30vh;
+	position: absolute;
+}
+
+.papers__list p:last-child { 
+	margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 1200px) {
 	.content .content__layer__text h1 {
 		font-size: 4rem;
 	}

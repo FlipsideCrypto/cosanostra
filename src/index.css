@@ -8,7 +8,79 @@
   font-family: 'Telugu MN', serif;
 }
 
+html, body { 
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5 { 
+  color: rgba(255, 255, 255, 0.85)
+}
+
+p { 
+  color: rgba(255, 255, 255, 0.65)
+}
+
+ul, ol, li { 
+  color: rgba(255, 255, 255, 0.55)
+}
+
 a { 
   text-decoration: none;
-  color: rgba(255 255 255 0.35)
+  color: rgba(255, 255, 255, 0.35);
+  transition: all .1s ease-in-out;
+}
+
+a:hover, 
+a:focus { 
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.light { 
+  transition: all .1s ease-in-out;
+}
+
+.light-bg { 
+  background: #fff;
+}
+
+.light body { 
+  background: #fff;
+}
+
+.light h1, 
+.light h2, 
+.light h3,
+.light h4, 
+.light h5 { 
+  color: rgba(0, 0, 0, 0.85)
+}
+
+.light p { 
+  color: rgba(0, 0, 0, 0.65)
+}
+
+.light ul, .light ol, .light li { 
+  color: rgba(0, 0, 0, 0.55)
+}
+
+.light a { 
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.light a:hover, 
+.light a:focus { 
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.light .navbar {
+  background: #fff;
+}
+
+.light .navbar .links svg { 
+  color:rgba(0, 0, 0, 0.35);
+}
+
+.light .navbar .links svg:hover,
+.light .navbar .links svg:focus { 
+  color:rgba(0, 0, 0, 0.65);
 }
