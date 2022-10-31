@@ -106,7 +106,7 @@ Using a Badge Bound Forwarder every account – at every step of the process –
 
 When creating the Forwarder, all one needs to do is define what Badge must be held and the balance of that Badge at the time of executing the transaction. (A blob of calldata cannot be signed, the Badge sold/transferred and the transaction still be executed.)
 
-Just like that, one can proceed without a massive headache or cause for concern! Instantly, your decentralized app has guard rails that bring a new-found level of security. Included with this paper, you can find an implementation for Badge Bound Forwarder. 
+Just like that, one can proceed without a massive headache or cause for concern! Instantly, your decentralized app has guard rails that bring a new-found level of security.
 
 This is only half of the puzzle though. The Signers operating within the protocol can now be easily verified, yet the Senders and Targets could still be nefarious. In the middle of the process, exists an independently verifiable Sender that is executing the transaction. 
 
@@ -122,17 +122,18 @@ With EIP-4337, contracts are no longer limited to gating on the Signer, Sender a
 Using 4337, every User Operation is a data-bundled transaction containing all the pieces that one may want to verify. This includes: sender, target, calldata, maxFeePerGas, maxPriorityFee, signature, and even nonce.
 
 With an extreme lack of opinion included in the EIP definition, the implementation can remain abstract with the use of the signature and nonce. Yet, the complexity and resulting benefits do not cease there. Along with a User Operation, when building the transaction, at the time of execution additional data points are included such as:
-Sender: The account contract sending a user operation.
-EntryPoint: A singleton contract that executes transactions.
-Aggregator: A helper contract that validates aggregated signatures.
+
+* Sender: The account contract sending a user operation.
+* EntryPoint: A singleton contract that executes transactions.
+* Aggregator: A helper contract that validates aggregated signatures.
 
 Incredibly, 4337 exposes data that still has not been covered in the above such as callGasLimit, verificationGasLimit, and preVerificationGas. Ironically, the incoming growth of 4337 adoption will inevitably mean that when Version 3 of OpenGSN does finally go live, it will already be outdated. Hence the development and usage of a personalized-to-you solution is justified and recommended for the foreseeable future.
 
-All this comes together to offer an incredibly robust framework that allows Forwarder contracts and their associated networks the ability of offering extremely opinionated implementations of cost subsidization and the parameters of doing so. While updating the already established Forwarder from above, a 4337 implementation brings additional nuance that can be ignored. Functionally, it is entirely up to the implementer to decide if and how each piece of data is used.
+All this comes together to offer an incredibly robust framework that allows Forwarder contracts and their associated networks the ability of offering extremely opinionated implementations of cost subsidization and the parameters of doing so. A 4337 implementation brings additional nuance that *can be ignored to a certain extent*. Functionally, it is entirely up to the implementer to decide if and how each piece of data is used.
 
 While impactful, a simple balance driven implementation of cost subsidization only provides a portion of the solution. Binary subsidization can be a great marketing mechanism that quickly attracts new users who might not have otherwise used the product, but runs the risk of rapid fund depletion and cannot weight rewards towards actions that benefit the product. 
 
-With an integration alongside the [Curve Registry (an unreleased mathematical primitive)](https://curve.readthedocs.io/registry-overview.html), subsidization can run on efficient patterns that drive more strongly desired consumer behaviors through flexibly managed forwarder fund spending rates.
+With an integration alongside the Curve Registry (an unreleased mathematical primitive), subsidization can run on efficient patterns that drive more strongly desired consumer behaviors through flexibly managed forwarder fund spending rates.
 
 > Now, before getting lost in the forest. One must realize that in order to only partially subsidize the cost, one must pay the cost that has not been covered. While in theory this means that the holding of gas (the native token) is required, that is not the full situation. While possible to remedy the requirement of holding at least some gas, this is not a functionality explored in this paper as the focus is on cost subsidization and not account abstraction. 
 
