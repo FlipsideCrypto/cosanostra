@@ -29,7 +29,7 @@ const Paper = () => {
             <Meta
                 title={`${
                     query?.data?.attributes 
-                    ? `${query?.data?.attributes?.title.toLowerCase()} |`
+                    ? `${query?.data?.attributes?.title.toLowerCase()} | `
                     : ``
                 }cosanostra`}
                 description={`${
