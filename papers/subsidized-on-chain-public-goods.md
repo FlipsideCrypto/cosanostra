@@ -1,5 +1,5 @@
 title:Subsidized On-Chain Public Goods
-date:Sep. 09, 2022
+date:Oct. 31, 2022
 author:danner* and CHANCE+
 description: Through the use of publicly contributable vaults purpose built to pay gas on behalf of users, blockchains can fund public goods with certainty that funds will not be misappropriated and without directly enriching grantees.
 ---
