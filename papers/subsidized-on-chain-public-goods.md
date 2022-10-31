@@ -49,37 +49,7 @@ The steps are rather simple when broken down into clear steps:
 -   The Sender proceeds with the signed data and signature where they submit it to a Relayer/Proxy to verify the data and signature.    
 -   Once the Relayer verifies the signatures, the call proceeds and the original signed transaction is executed at the expense of the Sender.
 
-Yet, while simple in concept, implementation is nuanced and can result in rapid loss of funds. To remedy that, a long catalog of different mechanisms have been developed and implemented; all attempting to solve the same problem. Yet, regardless of the technical implications, almost all of today's implementations lack the ability to control granular and critical permissions.
-
-Building the data is only the first step though. Now, with the Signer account we need to sign the resulting calldata from the transaction built.
-
-Executing transactions with opaque signatures can be dangerous. A signature is the first step of having additional security measures, yet it is not enough. To add another layer of security, a Gas Station Network (GSN) would traditionally only execute for a specific type of transaction and/or contract. Limiting down to a specific Target contract is rather straightforward with a simple signature like:
-
-```javascript
-/// pack the target address and calldata together and sign them.
-let rawData = web3.eth.abi.encodeParameters(
-  ['address','bytes'],
-  [organization.address,data]
-);
-
-// hash the data.
-let hash = web3.utils.soliditySha3(rawData);
-
-// sign the hash.
-let signature = web3.eth.sign(hash, signer);
-```
-
-With the data built and the transaction signed, the GSN can now extract the Target and verify that the interaction with that contract is subsidized for the user. All that is left is for the transaction to be executed.
-
-To execute the transaction, the Sender must call the `Proxy` contracts `forward` function with the values supplied by the Signer as well as any additional arguments required by the chosen GSN. Maintaining the previous configuration as above, this would result in the final output of:
-
--   _to: The address of the Target contract to minimize unintended cost coverage.
--   _data: The generated calldata that is used to call the transaction.
--   _signature: The signature from the Signer of the built transaction.
-
-Depending on the Proxy, there may be a situation where the structured data and/or the signature needs to be formatted differently. [Forwarder contracts](https://docs.openzeppelin.com/contracts/4.x/api/metatx) are typically riddled with vulnerabilities or heavily permissioned and custom-designed to fit the specification of the protocol using it. 
-
-Finally, all the Sender has to do is process the transaction on-chain. What may appear as a rather complex process at this granular level, the resulting benefits are clear and simple to understand:
+The resulting benefits are clear and simple to understand:
 
 -   A wallet does not need to hold any funds to have transactions executed on its behalf.
 -   A far greater amount of transactions can be condition-gated as the processing of them can be delegated to a Sender in the future.
@@ -87,18 +57,10 @@ Finally, all the Sender has to do is process the transaction on-chain. What may 
 
 Further, due to recent advancements the Signer can still execute these transactions in real-time without additional delay. End users must still sign transactions, but they are not required to execute them.
 
-However, due to the general dangers of an individual not having to cover the cost of their transactions, GSN contracts have had a long history of being drained in an instant. To remedy that, manual declaration and top-layer events were implemented that introduced difficult, but still penetrable gates. In some cases, however, these gates were so limiting the GSN did not cover the full functionality or users cost of usage. Permissioning both protected and impeded implementers.
-
-Alternatively, one may choose to use a public good such as [OpenGSN](https://opengsn.org/) rather than living in a dangerous world and building an entirely custom suite. A key nuance, however, is that OpenGSN has essentially gone into hibernation during the beta phase of [OpenGSN Version 3](https://docs.opengsn.org/). More vitally, there are [no actively running versions of Version 3 on any mainnet](https://relays.opengsn.org/). Yet, all documentation and notes reference the in-beta version. At the time of writing, OpenGSN is essentially unusable for new adopters.
-
-This is a major problem and means today that no one can really use the newest version of OpenGSN and with it sitting in beta with no announcements in three months, the situation is bleak. Instead of rolling over, the need to further abstract the complexity away is required. On top of this, there is an extremely limited number of relays even running [Version 2](https://relays-v2.opengsn.org/). So, while decentralized, a deep set of new issues arise that put the function of the app in question.
+Yet, while simple in concept, implementation is nuanced and can result in rapid loss of funds. To remedy that, a long catalog of different mechanisms have been developed and implemented; all attempting to solve the same problem. Yet, regardless of the technical implications, almost all of today's implementations lack the ability to control granular and critical permissions.
 
 ## The Traditional Forwarder
-What first appeared as the gasless approval of ERC20 tokens with [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612), has blossomed into the delegated calls of entire protocol and ecosystem functionalities. 
-
 Today, many contracts support and implement gasless transactions however the advised methods of permissioning are at the function level. While the ability to have gasless transactions for strictly defined functions is helpful, a user does much more than just a static set of functions on the vast majority of decentralized apps. A deeper set of functionality is required to enable permission-driven usage. Unlike the simplistic case of token approvals or transfers though, today's ecosystem demands for a model that can support a deep set of function and relevant calldata validation to drive an engine.
-
-With the use of [EIP-2771](https://eips.ethereum.org/EIPS/eip-2771), rather than validating the typehash of a specific function one can verify the Signer, Forwarder, and the Target contract independently.
 
 The solutions that are often used today only solve part of the problem and more often than not they end up being holistically ineffective. With the utilization of Badges as credentials to utilize Forwarders, the product design space expands by a vast margin. Historically, implementation of a Gas Station Network or Forwarder has been so simple or complex that the resulting product has been limited in functionality or overtly secure to a degree of unusability; broader protocol functions become inaccessible or a contract is exposed in a way that would allow a bad actor to drain all funds in a matter of seconds.
 
@@ -106,7 +68,7 @@ Using a Badge Bound Forwarder every account – at every step of the process –
 
 When creating the Forwarder, all one needs to do is define what Badge must be held and the balance of that Badge at the time of executing the transaction. (A blob of calldata cannot be signed, the Badge sold/transferred and the transaction still be executed.)
 
-Just like that, one can proceed without a massive headache or cause for concern! Instantly, your decentralized app has guard rails that bring a new-found level of security.
+Just like that, one can proceed without a massive headache or cause for concern! Instantly, your decentralized app has guard rails that bring a new-found level of security. 
 
 This is only half of the puzzle though. The Signers operating within the protocol can now be easily verified, yet the Senders and Targets could still be nefarious. In the middle of the process, exists an independently verifiable Sender that is executing the transaction. 
 
@@ -119,21 +81,9 @@ More recently, [EIP-4337](https://eips.ethereum.org/EIPS/eip-4337) has entered t
 
 With EIP-4337, contracts are no longer limited to gating on the Signer, Sender and Target. Now contracts have an even deeper set of data that can be verified against and utilized before and after transaction execution. Previously, the level of data-access in-contract was limited to the pieces already covered in this paper. With 4337, one can verify each granular piece of a submitted transaction with a far greater level of detail and control.
 
-Using 4337, every User Operation is a data-bundled transaction containing all the pieces that one may want to verify. This includes: sender, target, calldata, maxFeePerGas, maxPriorityFee, signature, and even nonce.
-
-With an extreme lack of opinion included in the EIP definition, the implementation can remain abstract with the use of the signature and nonce. Yet, the complexity and resulting benefits do not cease there. Along with a User Operation, when building the transaction, at the time of execution additional data points are included such as:
-
-* Sender: The account contract sending a user operation.
-* EntryPoint: A singleton contract that executes transactions.
-* Aggregator: A helper contract that validates aggregated signatures.
-
-Incredibly, 4337 exposes data that still has not been covered in the above such as callGasLimit, verificationGasLimit, and preVerificationGas. Ironically, the incoming growth of 4337 adoption will inevitably mean that when Version 3 of OpenGSN does finally go live, it will already be outdated. Hence the development and usage of a personalized-to-you solution is justified and recommended for the foreseeable future.
-
-All this comes together to offer an incredibly robust framework that allows Forwarder contracts and their associated networks the ability of offering extremely opinionated implementations of cost subsidization and the parameters of doing so. A 4337 implementation brings additional nuance that *can be ignored to a certain extent*. Functionally, it is entirely up to the implementer to decide if and how each piece of data is used.
+This allows us to build robust frameworks that allows Forwarder contracts and their associated networks the ability of offering extremely opinionated implementations of cost subsidization and the parameters of doing so. While updating the already established Forwarder from above, a 4337 implementation brings additional nuance that can be ignored. Functionally, it is entirely up to the implementer to decide if and how each piece of data is used.
 
 While impactful, a simple balance driven implementation of cost subsidization only provides a portion of the solution. Binary subsidization can be a great marketing mechanism that quickly attracts new users who might not have otherwise used the product, but runs the risk of rapid fund depletion and cannot weight rewards towards actions that benefit the product. 
-
-With an integration alongside the Curve Registry (an unreleased mathematical primitive), subsidization can run on efficient patterns that drive more strongly desired consumer behaviors through flexibly managed forwarder fund spending rates.
 
 > Now, before getting lost in the forest. One must realize that in order to only partially subsidize the cost, one must pay the cost that has not been covered. While in theory this means that the holding of gas (the native token) is required, that is not the full situation. While possible to remedy the requirement of holding at least some gas, this is not a functionality explored in this paper as the focus is on cost subsidization and not account abstraction. 
 
@@ -153,7 +103,7 @@ Products that currently subsidize for all users may introduce freemium or VIP ti
 ## Multi-Dimensional Subsidization Rates
 A number of heuristics may be used to determine subsidization rates. These heuristics may be independently configured, layered, and aggregated depending on the desired outcome. At this stage, aspects of this remain conceptual – but the primitive are fully implementable.
 
-Dimensions and the intersection of those covered here is not comprehensive. 
+Dimensions and the intersection of those covered here is not comprehensive.
 
 ### Usage Metrics
 Products may track metrics related to their users and manage subsidies based on usage.
