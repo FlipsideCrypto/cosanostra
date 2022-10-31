@@ -6,14 +6,15 @@ const useMousePosition = () => {
         top: 0,
     });
 
-    const handleMouseMove = useCallback(
-        (e) =>
-            setMousePosition({
-                left: e.pageX,
-                top: e.pageY,
-            }),
-        []
-    );
+    const handleMouseMove = useCallback((e) => {
+        const left = e.pageX / window.innerWidth * 100;
+        const top = e.pageY / window.innerHeight * 100;
+        
+        setMousePosition({
+            left,
+            top
+        })
+    }, []);
 
     const ref = useRef();
 
