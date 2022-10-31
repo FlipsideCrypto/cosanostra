@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
-import { fetchPapers } from "../hooks/papers";
+import { fetchPapers } from "../hooks/usePapers";
 
 import Meta from '../seo/Meta';
 

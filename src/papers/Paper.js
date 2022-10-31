@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
-import { fetchPaper } from "../hooks/papers";
+import { fetchPaper } from "../hooks/usePapers";
 
 import Meta from '../seo/Meta';
 
@@ -24,7 +24,6 @@ const Paper = () => {
 		document.documentElement.style.setProperty('--y', `${mousePosition.top}%`);
 	}, [mousePosition]);
     
-    // Render paper
     return (
         <>
             <Meta
