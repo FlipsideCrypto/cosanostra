@@ -159,13 +159,19 @@ Products may track metrics related to their users and manage subsidies based on 
 
 **1.  Power User Incent**
 
+![](/papers-cdn/subsidized-on-chain-public-goods/1.png)
+
 Products may wish to subsidize transactions for their heaviest users. This rewards power users and creates an incentive mechanism that may increase adoption as users unlock more free access as they pay over time. 
 
 **2.  Teaser Rates**
 
+![](/papers-cdn/subsidized-on-chain-public-goods/2.png)
+
 Products may wish to subsidize transaction fees for new users and then to increase costs over time. This is most similar to models seen on credit card interest rates, ISP/cell provider changes, etc. New users get hooked and then need to pay for access as they increase usage.
 
 **3.  Dunning Kruger**
+
+![](/papers-cdn/subsidized-on-chain-public-goods/3.png)
 
 Products may wish to ease early adoption before adding friction that is removed once the user becomes more active with the product. This could create situations of quick adoption and then ongoing subsidization to users who engage heavily with the product.
 
@@ -174,13 +180,19 @@ Products may adjust the level of subsidization they are willing to provide based
 
 **1.  Altruistic Alignment**
 
+![](/papers-cdn/subsidized-on-chain-public-goods/4.png)
+
 Products may wish to allow transactions to flow freely when there is great depth and for transactions to receive less subsidization when there is lower depth. As funds decrease and subsidization rates decrease, it benefits all users to add funds to the vault.
 
 **2.  Cornucopia Deployment**
 
+![](/papers-cdn/subsidized-on-chain-public-goods/5.png)
+
 Products may wish to issue subsidization consistently, regardless of vault depth. In this case, the curve is flat and funds are simply drawn down. Funds may be added but the subsidization rate is not impacted by vault depth. This creates a scenario in which users are incentivized to use what exists before it disappears without regard for their impact on others.
 
 **3.  Sisyphus Friction** 
+
+![](/papers-cdn/subsidized-on-chain-public-goods/6.png)
 
 Products may wish to slow the subsidization of a feature line. In this case, a curve that lowers the subsidization multiplier may be used. As funds are added to the vault, the usage cost of features increases.
 
