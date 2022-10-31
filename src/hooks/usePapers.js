@@ -25,7 +25,7 @@ const processContents = (files, contents) => {
     });
 };
 
-const fetchPapers = async () => {
+export const fetchPapers = async () => {
     // Get all markdown papers in /papers
     const files = req.keys().map((filename) => {
         const file = req(filename);
@@ -49,7 +49,7 @@ const fetchPapers = async () => {
     return papers;
 }
 
-const fetchPaper = async (query) => {
+export const fetchPaper = async (query) => {
     // Import the specific paper
 
     const req = require.context("../../papers", true, /\.md$/);
@@ -64,9 +64,4 @@ const fetchPaper = async (query) => {
     const paper = await fetch(file).then((response) => response.text());
 
     return processContents([file], [paper])[0];
-}
-
-module.exports = {
-    fetchPapers,
-    fetchPaper
 }
