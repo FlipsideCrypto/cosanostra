@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { fetchPaper } from "../hooks/usePapers";
 
 import Meta from '../seo/Meta';
+import PaperCode from './PaperCode';
 
 import useMousePosition from '../hooks/useMousePosition';
 
@@ -50,7 +51,13 @@ const Paper = () => {
                 
                     <h4 className="attributes">{query?.data?.attributes?.date} | {query?.data?.attributes?.author}</h4>
 
-                    {query?.data?.content && <Markdown className="markdown" options={{}}>
+                    {query?.data?.content && <Markdown className="markdown" options={{
+                        overrides: {
+                            code: {
+                                component: PaperCode,
+                            }
+                        }
+                    }}>
                         {query.data.content}
                     </Markdown>}
                 </div>
