@@ -1,11 +1,6 @@
-@font-face {
-  font-family: 'Telugu MN';
-  src: local('Telugu MN'), url(./static/telugu-mn.woff) format('woff');
-}
-
 * {
   box-sizing: border-box;
-  font-family: 'Telugu MN', serif;
+  font-family: 'Playfair Display', serif;
 }
 
 html,
@@ -16,25 +11,28 @@ body {
 h1,
 h2,
 h3,
-h4,
-h5,
 label {
-  color: rgba(255, 255, 255, 0.85)
+  color: rgba(255, 255, 255, .95)
+}
+
+h4,
+h5 { 
+  color:rgba(255, 255, 255, 0.75);
 }
 
 p {
-  color: rgba(255, 255, 255, 0.65)
+  color: rgba(255, 255, 255, .75);
 }
 
 ul,
 ol,
 li {
-  color: rgba(255, 255, 255, 0.55)
+  color: rgba(255, 255, 255, 0.85);
 }
 
 a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.85);
   transition: all .1s ease-in-out;
 }
 

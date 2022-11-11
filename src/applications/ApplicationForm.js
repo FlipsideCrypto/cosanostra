@@ -103,9 +103,9 @@ const ApplicationForm = ({ setSuccess }) => {
             return;
         }
 
-        const response = await postApplication(data)
+        await postApplication(data)
             .then(response => {
-                e.target.reset(); // clear form
+                e.target.reset(); 
                 setSuccess(true);
             })
             .catch(err => {
