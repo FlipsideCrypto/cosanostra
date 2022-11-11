@@ -9,6 +9,88 @@ body {
 	padding-inline: 30px;
 }
 
+.form-group { 
+	display: grid;
+	grid-template-rows: auto min-content;
+	grid-template-columns: 1fr;
+	margin-bottom: 10px;
+}
+
+.form-group label { 
+	margin-bottom: 10px;
+}
+
+.input-group { 
+	display: grid;
+	margin-bottom: 10px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea { 
+	padding: .5em 1em;
+	border-radius: 2px;
+	border: 1px solid rgb(0,0,0);
+	background: rgba(255,255,255,.1);
+	color: rgba(255,255,255,.65);
+	transition: all .1s ease-in-out;
+	/* make the outline the brand color */
+}
+
+.input-group input:hover,
+.input-group input:focus,
+.input-group input:active,
+.input-group select:hover,
+.input-group select:focus,
+.input-group select:active,
+.input-group textarea:hover,
+.input-group textarea:focus,
+.input-group textarea:active { 
+	outline: none;
+	color: rgba(255,255,255,1);
+	box-shadow: 
+		0 0 10px rgba(255, 216, 0, .1), 
+		0 0 30px rgba(255, 216, 0, .1), 
+		0 0 70px rgba(255, 216, 0, .1), 
+		0 0 100px rgba(255, 216, 0, .1), 
+		0 0 150px rgba(255, 216, 0, .1);
+}
+
+.input-group-append { 
+	display: grid;
+	grid-template-columns: auto min-content;
+	gap: 10px;
+}
+
+.input-group-append button { 
+	width: auto;
+	padding: .5em 1em;
+}
+
+.input-group .is-invalid { 
+	border: 1px solid red !important;
+}
+
+.input-group .is-invalid:hover,
+.input-group .is-invalid:focus,
+.input-group .is-invalid:active {
+	box-shadow: 
+		0 0 10px rgba(255, 0, 0, .1), 
+		0 0 30px rgba(255, 0, 0, .1), 
+		0 0 70px rgba(255, 0, 0, .1), 
+		0 0 100px rgba(255, 0, 0, .1), 
+		0 0 150px rgba(255, 0, 0, .1);
+}
+
+.input-group .invalid-feedback p { 
+	color: red !important;
+}
+
+.lead { 
+	margin-bottom: 40px;
+	font-size: 18px;
+}
+
 .navbar {
 	background: #000;
 	height: 56px;

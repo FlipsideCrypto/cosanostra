@@ -3,72 +3,124 @@
   src: local('Telugu MN'), url(./static/telugu-mn.woff) format('woff');
 }
 
-* { 
+* {
   box-sizing: border-box;
   font-family: 'Telugu MN', serif;
 }
 
-html, body { 
+html,
+body {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5 { 
+h1,
+h2,
+h3,
+h4,
+h5,
+label {
   color: rgba(255, 255, 255, 0.85)
 }
 
-p { 
+p {
   color: rgba(255, 255, 255, 0.65)
 }
 
-ul, ol, li { 
+ul,
+ol,
+li {
   color: rgba(255, 255, 255, 0.55)
 }
 
-a { 
+a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.35);
   transition: all .1s ease-in-out;
 }
 
-a:hover, 
-a:focus { 
+a:hover,
+a:focus {
   color: rgba(255, 255, 255, 0.65);
 }
 
-.light { 
+button {
+  background: rgba(255, 255, 255, .1);
+  color: white;
+  border: none;
+  padding: .5em 1em;
+  border-radius: 2px;
+  box-shadow:
+    0 0 10px rgba(255, 216, 0, .05),
+    0 0 30px rgba(255, 216, 0, .05),
+    0 0 70px rgba(255, 216, 0, .05),
+    0 0 100px rgba(255, 216, 0, .05),
+    0 0 150px rgba(255, 216, 0, .05);
+  width: fit-content;
   transition: all .1s ease-in-out;
 }
 
-.light-bg { 
-  background: #fff;
+button:hover,
+button:focus,
+button:active {
+  background: rgba(255, 216, 0, 1);
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+  box-shadow:
+    0 0 10px rgba(255, 216, 0, .1),
+    0 0 30px rgba(255, 216, 0, .1),
+    0 0 70px rgba(255, 216, 0, .1),
+    0 0 100px rgba(255, 216, 0, .1),
+    0 0 150px rgba(255, 216, 0, .1);
 }
 
-.light body { 
-  background: #fff;
-}
-
-.light h1, 
-.light h2, 
-.light h3,
-.light h4, 
-.light h5 { 
+button.primary {
+  background: rgba(255, 216, 0, .85);
   color: rgba(0, 0, 0, 0.85)
 }
 
-.light p { 
+button.primary:hover,
+button.primary:focus,
+button.primary:active {
+  background: rgba(255, 216, 0, 1);
+  color: rgba(0, 0, 0, 1)
+}
+
+.light {
+  transition: all .1s ease-in-out;
+}
+
+.light-bg {
+  background: #fff;
+}
+
+.light body {
+  background: #fff;
+}
+
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5 {
+  color: rgba(0, 0, 0, 0.85)
+}
+
+.light p {
   color: rgba(0, 0, 0, 0.65)
 }
 
-.light ul, .light ol, .light li { 
+.light ul,
+.light ol,
+.light li {
   color: rgba(0, 0, 0, 0.55)
 }
 
-.light a { 
+.light a {
   color: rgba(0, 0, 0, 0.35);
 }
 
-.light a:hover, 
-.light a:focus { 
+.light a:hover,
+.light a:focus {
   color: rgba(0, 0, 0, 0.65);
 }
 
@@ -76,11 +128,11 @@ a:focus {
   background: #fff;
 }
 
-.light .navbar .links svg { 
-  color:rgba(0, 0, 0, 0.35);
+.light .navbar .links svg {
+  color: rgba(0, 0, 0, 0.35);
 }
 
 .light .navbar .links svg:hover,
-.light .navbar .links svg:focus { 
-  color:rgba(0, 0, 0, 0.65);
+.light .navbar .links svg:focus {
+  color: rgba(0, 0, 0, 0.65);
 }

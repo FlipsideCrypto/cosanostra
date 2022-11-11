@@ -11,6 +11,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCoins, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
 import Home from './home/Home';
+import Application from './applications/Application';
 import Papers from './papers/Papers';
 import Paper from './papers/Paper';
 
@@ -55,6 +56,7 @@ function App() {
 
 						<div className="links">
 							<Link to="/papers">papers</Link>
+							<Link to="/application">apply</Link>
 						</div>
 
 						<div className="links">
@@ -74,6 +76,7 @@ function App() {
 
 				<Routes>
 					<Route path="/" element={<Home />} />
+					<Route path="application/" element={<Application />} />
 					<Route path="papers/" element={<Papers />} />
 					<Route path="/papers/:slug" element={<Paper  />} />
 				</Routes>
