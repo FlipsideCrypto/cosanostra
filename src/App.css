@@ -2,6 +2,7 @@ html,
 body {
 	background: #000;
 	overflow-x: hidden;
+	font-family: 'Domine', serif;
 }
 
 .container {
@@ -104,7 +105,7 @@ body {
 .navbar h2 { 
 	align-items: center;
 	display: flex;
-	color: rgba(255, 255, 255, .35);
+	color: rgba(255, 255, 255, .85);
 	font-size: 1.2rem;
 }
 
@@ -117,10 +118,15 @@ body {
 		0 0 150px rgba(255, 216, 0, .35);
 }
 
+.navbar .hamburger {
+	display: none;
+	grid-column:  span 2;
+}
+
 .navbar .links {
 	display: flex;
 	align-items: center;
-	color: rgba(255, 255, 255, .35);
+	color: rgba(255, 255, 255, .85);
 }
 
 .navbar .links:last-child { 
@@ -128,7 +134,7 @@ body {
 }
 
 .navbar .links svg {
-	color: rgba(255,255,255,.35);
+	color: rgba(255,255,255,.85);
 	transition: all .1s ease-in-out;
 }
 
@@ -240,6 +246,34 @@ body {
 }
 
 @media only screen and (max-width: 1200px) {
+	.navbar .hamburger { 
+		display: grid;
+		align-items: center;
+	}
+
+	.navbar .hamburger button { 
+		margin-left: auto;
+	}
+
+	.navbar.collapsed .links {
+		display: none;
+	}
+
+	.navbar .links { 
+		grid-column: span 3;
+		grid-template-columns: 1fr;
+		display: grid;
+		grid-row-gap: 20px;
+		padding-top: 20px;
+		background: rgba(0,0,0,.8);
+	}
+
+	.navbar .links:last-child { 
+		padding-top: 40px;
+		padding-bottom: 120px;
+		background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+	}
+
 	.content .content__layer__text h1 {
 		font-size: 4rem;
 	}
