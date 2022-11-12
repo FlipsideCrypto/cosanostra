@@ -277,4 +277,8 @@ body {
 	.content .content__layer__text h1 {
 		font-size: 4rem;
 	}
+
+	label { 
+		color: #000 !important;
+	}
 }
