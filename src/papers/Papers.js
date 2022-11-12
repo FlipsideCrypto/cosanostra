@@ -6,11 +6,15 @@ import { fetchPapers } from "../hooks/usePapers";
 
 import Meta from '../seo/Meta';
 
+import Title from '../title/Title';
+
 import useMousePosition from '../hooks/useMousePosition';
 
 const Papers = () => {
     const title = "papers | cosanostra";
     const description = "research & development of primitive & protocol for on-chain organizations, defi, and web3. explore value-driven on-chain primitives by crypto developers & value-creating products by web3 operators.";
+
+    const pageTitle = "Research papers published by the cosanostra collective.";
 
     const query = useQuery("papers", fetchPapers);
 
@@ -26,14 +30,7 @@ const Papers = () => {
             <Meta title={title} description={description} />
 
             <div className="paper" ref={ref}>
-                <div className="content mini">
-                    <div className="content__layer__text">
-                        <div className="container">
-                            <h1>Research papers published by the cosanostra collective.</h1>
-                        </div>
-                    </div>
-                    <div className="content__layer__one"></div>
-                </div>
+                <Title title={pageTitle} mousePosition={mousePosition} />
 
                 <div className="container">
                     <div className="papers__list">

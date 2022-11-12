@@ -13,6 +13,12 @@
     height: auto;
 }
 
+.paper .markdown a { 
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 216, 0, 1);
+    transition: all .1s ease-in-out;
+}
+
 .paper .attributes { 
     margin-bottom: 40px;
 }

@@ -2,11 +2,94 @@ html,
 body {
 	background: #000;
 	overflow-x: hidden;
+	font-family: 'Domine', serif;
 }
 
 .container {
 	margin-inline: auto;
 	padding-inline: 30px;
+}
+
+.form-group { 
+	display: grid;
+	grid-template-rows: auto min-content;
+	grid-template-columns: 1fr;
+	margin-bottom: 10px;
+}
+
+.form-group label { 
+	margin-bottom: 10px;
+}
+
+.input-group { 
+	display: grid;
+	margin-bottom: 10px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea { 
+	padding: .5em 1em;
+	border-radius: 2px;
+	border: 1px solid rgb(0,0,0);
+	background: rgba(255,255,255,.1);
+	color: rgba(255,255,255,.65);
+	transition: all .1s ease-in-out;
+	/* make the outline the brand color */
+}
+
+.input-group input:hover,
+.input-group input:focus,
+.input-group input:active,
+.input-group select:hover,
+.input-group select:focus,
+.input-group select:active,
+.input-group textarea:hover,
+.input-group textarea:focus,
+.input-group textarea:active { 
+	outline: none;
+	color: rgba(255,255,255,1);
+	box-shadow: 
+		0 0 10px rgba(255, 216, 0, .1), 
+		0 0 30px rgba(255, 216, 0, .1), 
+		0 0 70px rgba(255, 216, 0, .1), 
+		0 0 100px rgba(255, 216, 0, .1), 
+		0 0 150px rgba(255, 216, 0, .1);
+}
+
+.input-group-append { 
+	display: grid;
+	grid-template-columns: auto min-content;
+	gap: 10px;
+}
+
+.input-group-append button { 
+	width: auto;
+	padding: .5em 1em;
+}
+
+.input-group .is-invalid { 
+	border: 1px solid red !important;
+}
+
+.input-group .is-invalid:hover,
+.input-group .is-invalid:focus,
+.input-group .is-invalid:active {
+	box-shadow: 
+		0 0 10px rgba(255, 0, 0, .1), 
+		0 0 30px rgba(255, 0, 0, .1), 
+		0 0 70px rgba(255, 0, 0, .1), 
+		0 0 100px rgba(255, 0, 0, .1), 
+		0 0 150px rgba(255, 0, 0, .1);
+}
+
+.input-group .invalid-feedback p { 
+	color: red !important;
+}
+
+.lead { 
+	margin-bottom: 40px;
+	font-size: 18px;
 }
 
 .navbar {
@@ -22,7 +105,7 @@ body {
 .navbar h2 { 
 	align-items: center;
 	display: flex;
-	color: rgba(255, 255, 255, .35);
+	color: rgba(255, 255, 255, .85);
 	font-size: 1.2rem;
 }
 
@@ -35,10 +118,15 @@ body {
 		0 0 150px rgba(255, 216, 0, .35);
 }
 
+.navbar .hamburger {
+	display: none;
+	grid-column:  span 2;
+}
+
 .navbar .links {
 	display: flex;
 	align-items: center;
-	color: rgba(255, 255, 255, .35);
+	color: rgba(255, 255, 255, .85);
 }
 
 .navbar .links:last-child { 
@@ -46,7 +134,7 @@ body {
 }
 
 .navbar .links svg {
-	color: rgba(255,255,255,.35);
+	color: rgba(255,255,255,.85);
 	transition: all .1s ease-in-out;
 }
 
@@ -158,7 +246,39 @@ body {
 }
 
 @media only screen and (max-width: 1200px) {
+	.navbar .hamburger { 
+		display: grid;
+		align-items: center;
+	}
+
+	.navbar .hamburger button { 
+		margin-left: auto;
+	}
+
+	.navbar.collapsed .links {
+		display: none;
+	}
+
+	.navbar .links { 
+		grid-column: span 3;
+		grid-template-columns: 1fr;
+		display: grid;
+		grid-row-gap: 20px;
+		padding-top: 20px;
+		background: rgba(0,0,0,.8);
+	}
+
+	.navbar .links:last-child { 
+		padding-top: 40px;
+		padding-bottom: 120px;
+		background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+	}
+
 	.content .content__layer__text h1 {
 		font-size: 4rem;
+	}
+
+	label { 
+		color: #000 !important;
 	}
 }
