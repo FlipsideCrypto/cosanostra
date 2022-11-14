@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
@@ -19,11 +18,6 @@ const Papers = () => {
     const query = useQuery("papers", fetchPapers);
 
 	const [ref, mousePosition] = useMousePosition();
-
-    useEffect(() => {
-		document.documentElement.style.setProperty('--x', `${mousePosition.left}%`);
-		document.documentElement.style.setProperty('--y', `${mousePosition.top}%`);
-	}, [mousePosition]);
 
     return (
         <>

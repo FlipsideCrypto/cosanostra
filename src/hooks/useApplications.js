@@ -1,6 +1,4 @@
 export const postApplication = async (application) => {
-    const url = "https://discord.com/api/webhooks/1040463575132668055/87P4hfq1ueEnJ5aVpiCMLVPdTLakpiqvNLRPNQrmIVGUTIxD0g6dFAxHx6SAXy9lQVF-";
-
     // create a single embed with all the data
     const fields = Object.entries(application).map(([key, value]) => {
         const name = key.replace(/_/g, ' ');
@@ -20,7 +18,7 @@ export const postApplication = async (application) => {
         embeds: [embed],
     };
 
-    const response = await fetch(url, {
+    const response = await fetch(process.env.REACT_APP_DISCORD_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
