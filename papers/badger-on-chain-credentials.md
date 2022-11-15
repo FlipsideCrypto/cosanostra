@@ -1,4 +1,4 @@
-title:Badger Redefining On-Chain Credentials
+title:Redefining On-Chain Credentials with Badger
 date:Nov. 16, 2022
 author:CHANCE+ and danner* and masonchain+
 description: Traditional businesses and organizations have historically used methods of top-down management to streamline operations by attempting to lower costs and more strongly control internal actions and external outputs. Inside every organization, whether real or digital, there exists an internal definition of who has access to do what.
