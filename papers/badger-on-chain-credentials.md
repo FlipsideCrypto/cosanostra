@@ -5,7 +5,7 @@ description: Traditional businesses and organizations have historically used met
 ---
 Traditional businesses and organizations have historically used methods of top-down management to streamline operations by attempting to lower costs and more strongly control internal actions and external outputs. Inside every organization, whether real or digital, there exists an internal definition of who has access to do what. The general requirement of organization operation has demanded multiple levels of integration and access, yet the blockchain has remained infantile with absolute refusal to acknowledge centuries-old wisdom before now.
 
-Badger enables flexible on-chain role management. 
+[Badger](https://trybadger.com) enables flexible on-chain role management. 
 
 Traditional technology enabled organizations use tools such as Microsoft’s Active Directory to handle role based account provisioning. Badger allows anyone to create any arbitrary role management system for any arbitrary roles entirely on-chain. Role management systems created with Badger are immediately interoperable with a plethora of tools for on-chain organizations.
 
