@@ -245,7 +245,7 @@ body {
 	margin-bottom: 40px;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 900px) {
 	.navbar .hamburger { 
 		display: grid;
 		align-items: center;
@@ -280,5 +280,18 @@ body {
 
 	label { 
 		color: #000 !important;
+	}
+
+	.content::after { 
+		display: none;
+	}
+
+	.content .content__layer__text { 
+		background: none;
+		-webkit-text-fill-color: #FFD800;
+	}
+
+	.content__layer__one { 
+		display: none;
 	}
 }
