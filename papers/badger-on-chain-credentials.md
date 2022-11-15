@@ -1,6 +1,6 @@
 title:Redefining On-Chain Credentials with Badger
 date:Nov. 16, 2022
-author:CHANCE+ and danner* and masonchain+
+author:danner* and CHANCE+ and masonchain+
 description: Traditional businesses and organizations have historically used methods of top-down management to streamline operations by attempting to lower costs and more strongly control internal actions and external outputs. Inside every organization, whether real or digital, there exists an internal definition of who has access to do what.
 ---
 Traditional businesses and organizations have historically used methods of top-down management to streamline operations by attempting to lower costs and more strongly control internal actions and external outputs. Inside every organization, whether real or digital, there exists an internal definition of who has access to do what. The general requirement of organization operation has demanded multiple levels of integration and access, yet the blockchain has remained infantile with absolute refusal to acknowledge centuries-old wisdom before now.
