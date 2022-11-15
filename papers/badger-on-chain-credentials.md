@@ -215,4 +215,4 @@ Maintaining the requirement of no introduced opinion, Badger has left all paymen
 
 For too long traditional, modern, and even blockchain-based credential solutions have championed the monolithic and hyper-localized approach. It has prevented the ability to have module access policies for a global access state. With the internal integration of _Badges_, an Organization can benefit from management practices of the 21st century without having to tear everything down and restart.
 
-	The world and design space enabled by flexible keys has just begun to be explored. The real value is for you and every organization to find and craft.
+The world and design space enabled by flexible keys has just begun to be explored. The real value is for you and every organization to find and craft.
